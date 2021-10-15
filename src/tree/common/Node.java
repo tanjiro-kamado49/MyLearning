@@ -50,6 +50,43 @@ public class Node {
         root = insert(root, arr);
         return root;
     }
+    public static void preorder(Node root) {
+    	if(root!=null) {
+    		System.out.print(" "+root.val);
+    		preorder(root.left);
+    		preorder(root.right);
+    	}
+    }
+    public static void inorder(Node root) {
+    	if(root!=null) {
+    		inorder(root.left);
+    		System.out.print(" "+root.val);
+    		inorder(root.right);
+    	}
+    }
+    public static void postorder(Node root) {
+    	if(root!=null) {
+    		postorder(root.left);
+    		postorder(root.right);
+    		System.out.print(" "+root.val);
+    	}
+    }
+    public static void levelorder(Node root) {
+    	Node temp=null;
+    	List<Node> q= new ArrayList<>();
+    	q.add(root);
+    	while(!q.isEmpty()) {
+    		temp=q.remove(0);
+    		System.out.print(" "+temp.val);
+    		if(temp.left!=null) {
+    			q.add(temp.left);
+    		}
+    		if(temp.right!=null) {
+    			q.add(temp.right);
+    		}
+    		
+    	}
+    }
 
     public static void main(String[] args) {
     }
